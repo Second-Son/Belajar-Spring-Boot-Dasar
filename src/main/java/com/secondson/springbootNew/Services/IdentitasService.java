@@ -18,4 +18,9 @@ public class IdentitasService {
     public List<Identitas> getAllIdentitas(){
         return identitas;
     }
+
+//    ini service untuk mengambil list dari list array identitas di atas berdasarkan id
+    public Identitas getIdentitas(String id){
+        return identitas.stream().filter(t -> t.getId().equals(id)).findFirst().get();
+    }
 }
