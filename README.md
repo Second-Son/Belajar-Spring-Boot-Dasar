@@ -5,3 +5,5 @@ Menerapkan Mapping :
 - POST
 - PUT
 - DELETE
+
+Silahkan Pindah Ke Branch jpa untuk melihat Penerapan JPA Menggunakan Database Apache Derby
