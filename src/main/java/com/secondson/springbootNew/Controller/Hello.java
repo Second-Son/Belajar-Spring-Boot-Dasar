@@ -35,4 +35,9 @@ public class Hello {
 		System.out.println(identitas);
 		identitasService.addIdentitas(identitas);
 	}
+
+	@PutMapping(value = "/identitas/{id}")
+	public void updateIdentitas(@RequestBody Identitas identitas, @PathVariable String id){
+		identitasService.updateIdentitas(id, identitas);
+	}
 }

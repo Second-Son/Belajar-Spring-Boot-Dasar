@@ -28,4 +28,14 @@ public class IdentitasService {
     public void addIdentitas(Identitas identitass) {
         identitas.add(identitass);
     }
+
+    public void updateIdentitas(String id, Identitas identitass) {
+        for (int i = 0; i < identitas.size(); i++){
+            Identitas iden = identitas.get(i);
+            if (iden.getId().equals(id)){
+                identitas.set(i, identitass);
+                return;
+            }
+        }
+    }
 }
