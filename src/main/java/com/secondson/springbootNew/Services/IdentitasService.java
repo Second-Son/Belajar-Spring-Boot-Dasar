@@ -38,4 +38,8 @@ public class IdentitasService {
             }
         }
     }
+
+    public void deleteIdentitas(String id) {
+        identitas.removeIf(t -> t.getId().equals(id));
+    }
 }

@@ -40,4 +40,9 @@ public class Hello {
 	public void updateIdentitas(@RequestBody Identitas identitas, @PathVariable String id){
 		identitasService.updateIdentitas(id, identitas);
 	}
+
+	@DeleteMapping(value = "/identitas/{id}")
+	public void deleteIdentitas(@PathVariable String id){
+		identitasService.deleteIdentitas(id);
+	}
 }
