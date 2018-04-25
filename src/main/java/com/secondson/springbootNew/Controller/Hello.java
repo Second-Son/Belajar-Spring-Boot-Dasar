@@ -3,10 +3,7 @@ package com.secondson.springbootNew.Controller;
 import com.secondson.springbootNew.Model.Identitas;
 import com.secondson.springbootNew.Services.IdentitasService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,8 +25,14 @@ public class Hello {
 		return identitasService.getAllIdentitas();
 	}
 
-	@GetMapping("/identitas/{id}")
+	@GetMapping(value = "/identitas/{id}")
 	public Identitas getIdentitas(@PathVariable String id){
 		return identitasService.getIdentitas(id);
+	}
+
+	@PostMapping(value = "/identitas/add")
+	public void addIdentitas(@RequestBody Identitas identitas){
+		System.out.println(identitas);
+		identitasService.addIdentitas(identitas);
 	}
 }
