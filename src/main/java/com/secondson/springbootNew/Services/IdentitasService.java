@@ -1,45 +1,38 @@
 package com.secondson.springbootNew.Services;
 
 import com.secondson.springbootNew.Model.Identitas;
+import com.secondson.springbootNew.Repository.IdentitasRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class IdentitasService {
 
-    private List<Identitas> identitas = new ArrayList<>(Arrays.asList(
-            new Identitas("1", "Yusuf", "Ujungberung", "Programmer"),
-            new Identitas("2", "Haidi Ghufron", "Bandung", "Web Development")
-    ));
-
+    @Autowired
+    private IdentitasRepository identitasRepository;
 
     public List<Identitas> getAllIdentitas(){
+        List<Identitas> identitas = new ArrayList<>();
+        identitasRepository.findAll().forEach(identitas::add);
         return identitas;
     }
 
-//    ini service untuk mengambil list dari list array identitas di atas berdasarkan id
-    public Identitas getIdentitas(String id){
-        return identitas.stream().filter(t -> t.getId().equals(id)).findFirst().get();
-    }
+//    public Identitas getIdentitas(String id){
+//       return identitasRepository.findAllById();
+//    }
 
     public void addIdentitas(Identitas identitass) {
-        identitas.add(identitass);
+        identitasRepository.save(identitass);
     }
 
-    public void updateIdentitas(String id, Identitas identitass) {
-        for (int i = 0; i < identitas.size(); i++){
-            Identitas iden = identitas.get(i);
-            if (iden.getId().equals(id)){
-                identitas.set(i, identitass);
-                return;
-            }
-        }
+    public void updateIdentitas(Identitas identitass) {
+        identitasRepository.save(identitass);
     }
 
     public void deleteIdentitas(String id) {
-        identitas.removeIf(t -> t.getId().equals(id));
+        identitasRepository.deleteById(id);
     }
 }

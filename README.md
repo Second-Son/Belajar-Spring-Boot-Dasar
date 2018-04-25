@@ -5,3 +5,5 @@ Menerapkan Mapping :
 - POST
 - PUT
 - DELETE
+
+Menerapkan JPA dan database apache derby

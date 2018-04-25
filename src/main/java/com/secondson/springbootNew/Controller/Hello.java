@@ -25,10 +25,10 @@ public class Hello {
 		return identitasService.getAllIdentitas();
 	}
 
-	@GetMapping(value = "/identitas/{id}")
-	public Identitas getIdentitas(@PathVariable String id){
-		return identitasService.getIdentitas(id);
-	}
+//	@GetMapping(value = "/identitas/{id}")
+//	public Identitas getIdentitas(@PathVariable String id){
+//		return identitasService.getIdentitas(id);
+//	}
 
 	@PostMapping(value = "/identitas/add")
 	public void addIdentitas(@RequestBody Identitas identitas){
@@ -36,9 +36,9 @@ public class Hello {
 		identitasService.addIdentitas(identitas);
 	}
 
-	@PutMapping(value = "/identitas/{id}")
-	public void updateIdentitas(@RequestBody Identitas identitas, @PathVariable String id){
-		identitasService.updateIdentitas(id, identitas);
+	@PutMapping(value = "/identitas")
+	public void updateIdentitas(@RequestBody Identitas identitas){
+		identitasService.updateIdentitas(identitas);
 	}
 
 	@DeleteMapping(value = "/identitas/{id}")
