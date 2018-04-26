@@ -25,10 +25,10 @@ public class Hello {
 		return identitasService.getAllIdentitas();
 	}
 
-//	@GetMapping(value = "/identitas/{id}")
-//	public Identitas getIdentitas(@PathVariable String id){
-//		return identitasService.getIdentitas(id);
-//	}
+	@GetMapping(value = "/identitas/{id}")
+	public Identitas getIdentitas(@PathVariable String id){
+		return identitasService.getIdentitas(id);
+	}
 
 	@PostMapping(value = "/identitas/add")
 	public void addIdentitas(@RequestBody Identitas identitas){

@@ -20,9 +20,9 @@ public class IdentitasService {
         return identitas;
     }
 
-//    public Identitas getIdentitas(String id){
-//       return identitasRepository.findAllById();
-//    }
+    public Identitas getIdentitas(String id){
+       return identitasRepository.findOne(id);
+    }
 
     public void addIdentitas(Identitas identitass) {
         identitasRepository.save(identitass);
@@ -33,6 +33,6 @@ public class IdentitasService {
     }
 
     public void deleteIdentitas(String id) {
-        identitasRepository.deleteById(id);
+        identitasRepository.delete(id);
     }
 }
